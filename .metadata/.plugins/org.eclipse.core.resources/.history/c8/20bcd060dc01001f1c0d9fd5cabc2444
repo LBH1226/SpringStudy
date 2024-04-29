@@ -1,0 +1,15 @@
+package com.smhrd.myapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+// SpringBoot 프로젝트의 시작지점
+@SpringBootApplication
+public class SpringBoot1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBoot1Application.class, args);
+	}
+
+}

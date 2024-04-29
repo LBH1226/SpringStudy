@@ -1,0 +1,6 @@
+package com.smhrd.model;
+
+public class ChartVO {
+	private String artist;
+	private int keyword_cnt;
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.BoardMapper">
+
+	<select id="boardList" resultType="com.smhrd.model.BoardVO">
+		SELECT * FROM BOARD
+	</select>
+
+	<insert id="boardRegister"
+		parameterType="com.smhrd.model.BoardVO">
+		insert into board (title, writer, content)
+		values
+		(#{title}, #{writer}, #{content})
+	</insert>
+
+	<update id="edit" parameterType="com.smhrd.model.BoardVO">
+		update board
+		set title =
+		#{title}, writer = #{writer}, content = #{content}
+		where idx = #{idx}
+	</update>
+
+	<!-- 검색 -->
+
+	<select id="search"
+		parameterType="com.smhrd.model.SearchCriteria"
+		resultType="com.smhrd.model.BoardVO">
+		select *
+		from board
+		<include refid="searchOption" />
+	</select>
+
+	<sql id="searchOption">
+		<if test="type=='작성자'">
+			where writer like concat('%',#{text},'%')
+		</if>
+		<if test="type=='제목'">
+			where title like concat('%',#{text},'%')
+		</if>
+	</sql>
+
+
+	<!-- 자동완성 -->
+
+	<select id="autocomplete"
+		parameterType="com.smhrd.model.SearchCriteria"
+		resultType="com.smhrd.model.BoardVO">
+		<include refid="autoOption" />
+
+	</select>
+
+	<sql id="autoOption">
+		<if test="type=='작성자'">
+			select distinct(writer) from board
+		</if>
+		<if test="type=='제목'">
+			select distinct(title) from board
+		</if>
+	</sql>
+
+	<!-- 차트 상위 5개 -->
+	<select id="artist" parameterType="com.smhrd.model.ChartVO"
+		resultType="com.smhrd.model.ChartVO">
+		SELECT ARTIST, SUM(KEYWORD_CNT) AS KEYWORD_CNT
+		FROM ARTIST
+		group by ARTIST
+		ORDER BY KEYWORD_CNT DESC
+		LIMIT 5
+	</select>
+
+
+
+
+</mapper>

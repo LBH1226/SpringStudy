@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.ArtistMapper">
+
+<!-- 차트 상위 5개 -->
+	
+	<!--  -->
+	<resultMap type="com.smhrd.model.ArtistVO" id="myResult">
+	
+	
+	
+	</resultMap>
+	
+	
+	<select id="artist" resultMap="myResult">
+		SELECT ARTIST, SUM(KEYWORD_CNT) AS KEYWORD_CNT
+		FROM ARTIST
+		group by ARTIST
+		ORDER BY KEYWORD_CNT DESC
+		LIMIT 5
+	</select>
+
+</mapper>

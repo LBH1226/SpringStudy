@@ -1,0 +1,9 @@
+spring.application.name=SpringBoot1
+
+
+# SpringBoot의 모든 환경설정을 담당하는 파일
+# DB환경, FC설정, 문법 설정 등등
+
+# 1. server port 번호 설정
+server.port = 8089
+

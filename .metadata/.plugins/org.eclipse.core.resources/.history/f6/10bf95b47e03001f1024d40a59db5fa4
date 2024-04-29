@@ -1,0 +1,20 @@
+package com.smhrd.myapp.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+// 해당하는 파일이 환경설정 파일임을 나타냄
+// --> 해당 클래스 안쪽에서 @Bean(객체)들을 하나 이상 정의할 수 있게 해줌
+// 기본으로 설정된 Bean을 우리가 Bean을 만들어서 덮어 씌워줘야한다
+@Configuration
+// 해당 클래스 파일이 "Spring Security"용 환경설정 파일임을 나타냄
+@EnableWebSecurity
+public class SecurityConfiguration {
+	
+	@Bean
+	public class 
+	
+	
+	
+}

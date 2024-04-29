@@ -1,0 +1,27 @@
+package com.smhrd.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.smhrd.db.BoardMapper;
+import com.smhrd.model.ArtistVO;
+
+@RestController
+public class ArtistRestController {
+	
+	@Autowired
+	private BoardMapper mapper;
+
+	///////////////////////////차트정보///////////////////////////////
+	@RequestMapping("/artist")
+	public List<ArtistVO> artist() {
+		
+		List<ArtistVO> list = mapper.artist();
+		System.out.println("리스트 >> "list);
+		return list;
+	}
+
+}

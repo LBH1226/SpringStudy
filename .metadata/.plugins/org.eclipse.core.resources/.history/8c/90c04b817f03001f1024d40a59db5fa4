@@ -1,0 +1,38 @@
+package com.smhrd.myapp.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+// 해당하는 파일이 환경설정 파일임을 나타냄
+// --> 해당 클래스 안쪽에서 @Bean(객체)들을 하나 이상 정의할 수 있게 해줌
+// 기본으로 설정된 Bean을 우리가 Bean을 만들어서 덮어 씌워줘야한다
+@Configuration
+// 해당 클래스 파일이 "Spring Security"용 환경설정 파일임을 나타냄
+@EnableWebSecurity
+public class SecurityConfiguration {
+	
+	// Bean (객체)
+	// : Spring Container에 적제될 수 있는 형태
+	// 언제 많이 사용해요?
+	// 1. 기능들을 사용자 정의 형태로 만들어야할 때 많이 사용
+	// 2. 모든 클래스 파일들이 공유해야할 때
+	
+	// 클래스 안에 또 다른 클래스 설계 가능 --> inner class
+	// throws Exception를 쓰면 try catch문 안잡아줘도됨
+	@Bean
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+		
+		
+		
+		
+		return null;
+	}
+
+ 
+	
+	
+	
+}

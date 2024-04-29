@@ -1,0 +1,10 @@
+spring.application.name=SpringSecurity
+
+
+# 1. port 번호 8088
+
+# 2. viewresolver 잡아주기
+
+
+
+

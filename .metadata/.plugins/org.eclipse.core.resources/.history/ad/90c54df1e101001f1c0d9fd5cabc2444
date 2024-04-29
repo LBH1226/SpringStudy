@@ -1,0 +1,14 @@
+package com.smhrd.myapp.comtroller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MemberController {
+	
+	// index.jsp를 띄워주는 메소드
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+}

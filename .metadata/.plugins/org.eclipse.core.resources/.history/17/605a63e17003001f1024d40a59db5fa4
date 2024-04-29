@@ -1,0 +1,39 @@
+package com.smhrd.myapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.smhrd.myapp.entity.Member;
+
+import com.smhrd.myapp.mapper.MemberMapper;
+import com.smhrd.myapp.vo.MemberVO;
+
+@Controller
+public class MemberController {
+	@Autowired
+	private MemberMapper mapper;
+
+	@PostMapping("/login")
+	public String login(MemberVO vo, RedirectAttributes rttr) {
+
+		Member entity = mapper.findByUseridAndPw(vo.getUserid(), vo.getPw());
+
+		return "redirect:/dashboard";
+	}
+
+	@PostMapping("/join-process")
+	public String joinProcess(MemberVO vo) {
+
+		System.out.println("ddddddd >> " + vo);
+
+		Member entity = new Member(vo);
+		print(vo.getUserid().length());
+		if(vo.getUserid().length()==0 || vo.getPw().length()==0) {
+		mapper.save(entity);
+		}
+		return "redirect:/";
+	}
+
+}

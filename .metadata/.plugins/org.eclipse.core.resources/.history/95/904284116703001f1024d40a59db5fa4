@@ -1,0 +1,19 @@
+package com.smhrd.myapp.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Member {
+	
+	private Long id; // pk
+	private String userid; // not null
+	private String pw; // not null
+	private String role; // 역할 , 권한 설정 때 사용 예정 // default값 'user'
+						
+}

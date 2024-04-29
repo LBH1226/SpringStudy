@@ -1,0 +1,46 @@
+package com.smhrd.myapp.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.smhrd.myapp.entity.MemberEntity;
+
+// @Mapper // Bean으로 등록하기 위한 annotation
+// JpaRepository는 인터페이스이나 implements로 상속받는게 아니라 extends로 상속받음
+@Repository
+public interface MemberMapper extends JpaRepository<MemberEntity, Long> {
+	
+	// JPA에서 제공해주는 기본 CRUD 메소드
+	// 1. findAll()
+	// --> SELECT * FROM MEMBER_ENTITY; ->> 카멜식으로 적어놓으면 알아서 스네이크형태로 바뀜
+	// 2. findById(pk값)
+	// --> SELECT * FROM MEMBER_ENTITY WHERE PK컬럼명 = 매개변수
+	// 3. save(받아올 매개변수 순서대로)
+	// --> INSERT INTO MEMBER_ENTITY VALUES(?,?,?,?)
+	// 4. delete()
+	// --> DELETE FROM MEMBER_ENTITY WHERE PK컬럼명 = 매개변수
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// -Spring MVC-
+	// SqlSessionFactoryBean 구현체를 만들어서 사용
+	
+	// -Springboot-
+	// Hibernate 구현체를 만들어서 사용
+	// --> SpringbootContainer 안쪽에 해당 클래스가 등록되어있어야함
+	
+	
+	
+	
+	
+	
+	
+	
+}
